@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Enter an Array: </h4>
+    <input type="text" id="a">
+    <button onclick="array_shi()">Submit</button>
+
+    <p id="s"></p>
+    <p id="av"></p>
+    <p id="o"></p>
+    <p id="e"></p>
+
+    <script>
+        function array_shi() {
+            let input = document.getElementById("a").value;
+            let arr = input.split(" ").map(Number);
+
+            let n = arr.length;
+            let sum = 0;
+            let ocnt = 0, ecnt = 0;
+
+            for (let i=0; i<n; i++) {
+                sum += arr[i];
+
+                if (arr[i] % 2 === 0) {
+                    ecnt++;
+                }
+                else {
+                    ocnt++;
+                }
+            }
+
+            let avg = sum / n;
+
+            document.getElementById("s").innerHTML = "Sum = " + sum;
+            document.getElementById("av").innerHTML = "Average = " + avg;
+            document.getElementById("e").innerHTML = "Even count = " + ecnt;
+            document.getElementById("o").innerHTML = "Odd count = " + ocnt;
+        }
+    </script>
+</body>
+</html>
