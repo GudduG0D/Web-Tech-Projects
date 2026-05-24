@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Enter a 3 digit number: </h4>
+    <input type="text" id="arm">
+    <button onclick="Army()">Submit</button>
+
+    <p id="lol"></p>
+
+    <script>
+        function Army() {
+            let n = document.getElementById("arm").value;
+            n = Number(n);
+            let temp = n;
+            let cnt = 0;
+            let rem, sum = 0, ans;
+
+            while (temp != 0) {
+                temp = parseInt(temp / 10);
+                cnt++;
+            }
+
+            temp = n;
+
+            while (temp != 0) {
+                rem = temp % 10;
+                ans = 1;
+                for (let i=0; i<cnt; i++) {
+                    ans = ans * rem;
+                }
+                temp = parseInt(temp / 10);
+                sum += ans;
+            }
+
+            if (n === sum) {
+                document.getElementById("lol").innerHTML = n + " is an Armstrong"
+            }
+            else {
+                document.getElementById("lol").innerHTML = n + " is not an Armstrong"
+            }
+        }
+    </script>
+</body>
+</html>
